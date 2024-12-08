@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts List</title>
+</head>
+<body>
+    <h1>Posts List</h1>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <strong>{{ post.title }}</strong> by User ID: {{ post.user_id }}
+                <p>{{ post.content }}</p>
+                <a href="/posts/edit/{{ post.id }}">Edit</a>
+                <a href="/posts/{{ post.id }}" onclick="return confirm('Are you sure you want to delete this post?')">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="/posts/create">Create New Post</a>
+</body>
+</html>
